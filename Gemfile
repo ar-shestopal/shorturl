@@ -45,6 +45,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
+  gem 'capybara-webkit', '~> 1.15.0'
 end
 
 group :development do
