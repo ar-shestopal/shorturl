@@ -12,16 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :short %>
-    <%= form.text_field :short %>
-  </div>
-
-  <div class="field">
-    <%= form.label :long %>
+    <%= form.label :long, 'Long url' %>
     <%= form.text_area :long %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Shorten url' %>
   </div>
 <% end %>
