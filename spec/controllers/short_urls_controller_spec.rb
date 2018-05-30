@@ -25,6 +25,7 @@ require 'rails_helper'
 
 RSpec.describe ShortUrlsController, type: :controller do
   describe "GET #show" do
+    let(:short_url) { create(:short_url) }
     it "returns a success response" do
       get :show, params: {id: short_url.to_param}
       expect(response).to be_success
@@ -39,6 +40,8 @@ RSpec.describe ShortUrlsController, type: :controller do
   end
 
   describe "POST #create" do
+    let(:attributes) { FactoryBot.attributes_for(:short_url) }
+
     it "creates a new ShortUrl" do
       expect {
         post :create, params: {short_url: attributes}
