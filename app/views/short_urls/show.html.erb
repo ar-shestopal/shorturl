@@ -1,6 +1,7 @@
 <h2>Click here to follow your link</h2>
 <p>
-  <%= link_to '<< Follow >>', follow_short_url_path(token: @short_url.token) %>
+  <%= link_to "<< Follow >> #{follow_short_url_url(token: @short_url.token)}",
+              follow_short_url_path(token: @short_url.token) %>
 </p>
 
 

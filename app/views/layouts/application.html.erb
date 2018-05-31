@@ -7,9 +7,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <%= link_to 'Short URL', root_path, class: 'logo' %>
+      <div class="header-right">
+        <%= link_to 'Home', root_path, class: 'active' %>
+        <!--<a href="#contact">Login</a>-->
+        <!--<a href="#about">About</a>-->
+      </div>
+    </div>
+
+    <div style="padding-left:20px">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
