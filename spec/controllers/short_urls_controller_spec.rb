@@ -53,4 +53,13 @@ RSpec.describe ShortUrlsController, type: :controller do
       expect(response).to redirect_to(ShortUrl.last)
     end
   end
+
+  describe "GET #follow" do
+    let!(:short_url) { create(:short_url) }
+
+    it "redirects to long url" do
+      get :follow, params: {token: short_url.token }
+      expect(response).to redirect_to(short_url.long)
+    end
+  end
 end

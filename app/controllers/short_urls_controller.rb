@@ -1,10 +1,6 @@
 class ShortUrlsController < ApplicationController
-  before_action :set_short_url, only: [:show, :edit, :update, :destroy]
-
-  # GET /short_urls
-  def index
-    @short_urls = ShortUrl.all
-  end
+  before_action :set_short_url, only: :show
+  before_action :set_short_url_by_token, only: :follow
 
   # GET /short_urls/1
   def show; end
@@ -27,12 +23,19 @@ class ShortUrlsController < ApplicationController
     end
   end
 
+  def follow
+    redirect_to @short_url.long
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_short_url
     @short_url = ShortUrl.find(params[:id])
   end
 
+  def set_short_url_by_token
+    @short_url = ShortUrl.find_by_token(params[:token])
+  end
   # Never trust parameters from the scary internet, only allow the white list through.
   def short_url_params
     params.require(:short_url).permit(:long)
