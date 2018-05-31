@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ShortUrl, type: :model do
   it { should validate_presence_of(:long) }
-  it { should validate_presence_of(:token) }
-  it { should validate_uniqueness_of(:token) }
+
+  context '#set token' do
+    it 'should generate token on creation' do
+      short_url = create(:short_url)
+      expect(short_url.token).not_to be_nil
+    end
+  end
 end
