@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<h2>Click here to follow your link</h2>
 <p>
-  <strong>Short:</strong>
-  <%= @short_url.short %>
+  <%= link_to '<< Follow >>', follow_short_url_path(token: @short_url.token) %>
 </p>
 
-<p>
-  <strong>Long:</strong>
-  <%= @short_url.long %>
-</p>
 
-<%= link_to 'Edit', edit_short_url_path(@short_url) %> |
-<%= link_to 'Back', short_urls_path %>

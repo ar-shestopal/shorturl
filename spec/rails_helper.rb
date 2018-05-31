@@ -34,6 +34,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include FactoryBot::Syntax::Methods
+  config.include Rails.application.routes.url_helpers, :type => :feature
+  config.include Support::ShortUrlFeature, :type => :feature
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
