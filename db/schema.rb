@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_101833) do
+ActiveRecord::Schema.define(version: 2018_05_31_143152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,16 @@ ActiveRecord::Schema.define(version: 2018_05_31_101833) do
     t.index ["token"], name: "index_short_urls_on_token", unique: true
   end
 
+  create_table "user_infos", force: :cascade do |t|
+    t.string "request_user_agent"
+    t.string "request_from"
+    t.string "request_referer"
+    t.string "request_ip"
+    t.bigint "short_url_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["short_url_id"], name: "index_user_infos_on_short_url_id"
+  end
+
+  add_foreign_key "user_infos", "short_urls"
 end
