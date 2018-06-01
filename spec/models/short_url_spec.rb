@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ShortUrl, type: :model do
   it { should validate_presence_of(:long) }
+  it { should have_many :user_infos }
 
   context '#set token' do
     it 'should generate token on creation' do
