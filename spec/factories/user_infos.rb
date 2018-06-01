@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user_info do
-    request_user_agent "MyString"
-    request_from "MyString"
-    request_referer "MyString"
-    request_ip "MyString"
-    short_url nil
+    short_url
+    request_user_agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4'
+    request_from nil
+    request_referer 'http://localhost:3000/'
+    request_ip 'http://localhost:3000/'
   end
 end
