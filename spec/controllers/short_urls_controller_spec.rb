@@ -61,5 +61,11 @@ RSpec.describe ShortUrlsController, type: :controller do
       get :follow, params: {token: short_url.token }
       expect(response).to redirect_to(short_url.long)
     end
+
+    it 'adds UserInfo' do
+      expect {
+        get :follow, params: {token: short_url.token }
+      }.to change(UserInfo, :count).by 1
+    end
   end
 end

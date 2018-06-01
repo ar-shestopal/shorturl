@@ -12,7 +12,7 @@ class ShortUrlsController < ApplicationController
 
   # POST /short_urls
   def create
-    @short_url = ShortUrl.new(short_url_params)
+    @short_url = ShortUrl.find_or_initialize_by(short_url_params)
 
     respond_to do |format|
       if @short_url.save
@@ -24,6 +24,7 @@ class ShortUrlsController < ApplicationController
   end
 
   def follow
+    UserInfoFactory.create(@short_url, request)
     redirect_to @short_url.long
   end
 
