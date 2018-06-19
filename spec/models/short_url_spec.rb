@@ -10,4 +10,11 @@ RSpec.describe ShortUrl, type: :model do
       expect(short_url.token).not_to be_nil
     end
   end
+
+  context '#check url' do
+    it 'should add https' do
+      short_url = create(:short_url, long: 'google.com')
+      expect(short_url.long).to eq 'http://google.com'
+    end
+  end
 end
