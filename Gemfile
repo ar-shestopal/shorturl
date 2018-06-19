@@ -45,6 +45,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', require: false
   gem 'database_cleaner', '~> 1.7.0'
   gem 'capybara-webkit', '~> 1.15.0'
   gem 'shoulda-matchers', '~> 3.1'
